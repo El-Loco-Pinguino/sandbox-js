@@ -1,0 +1,164 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Excuses bidon !</title>
+</head>
+<body>
+    <button onclick="phrase()" type="button">Une phrase rigolote !</button>
+    <div id="blocMessage">
+
+    </div>
+    <script>
+        const qui = [
+            "un certain Thomas C",
+            "le campus manager",
+            "la Reine des Neiges",
+            "Nagui",
+            "mon copain Maxence",
+            "Donald Trump",
+            "Shrek",
+            "Cristina Cordula",
+            "Florian",
+            "Princesse Peach",
+            "ma belle-mère",
+            "la secrétaire",
+            "Sherlock Holmes",
+            "Pikachu",
+            "ma prof d'anglais", 
+            "Iggy l'iguane", 
+            "la sorcière",
+            "mon avocat",  
+        ]
+
+        const verbe = [
+            "a glissé",
+            "a cassé un bidule",
+            "a vomi",
+            "a fait ses besoins",
+            "s'était perdu",
+            "était tombé",
+            "s'était endormi",
+            "s'était fait mal",
+            "a trébuché",
+            "était coincé",
+            "s'était battu",
+            "a mis le feu",
+            "a dansé la macarena",
+            "a participé à Miss France",
+            "a raté sa tentative de suicide",
+            "n'a pas arrêté de spoiler Game of Thrones",
+            "a dévoré son Big Mac", 
+            "a eu un accident de voiture", 
+            "m'a proposé un truc indécent",
+        ]
+
+        const ou = [
+            "la cave",
+            "le grenier",
+            "mon bureau",
+            "votre bureau",
+            "le magasin",
+            "la Wild Code School",
+            "mes toilettes",
+            "Fort Boyard",
+            "le Moulin Rouge",
+            "son sous-marin jaune",
+            "un cinéma",
+            "la Tour Eiffel", 
+            "le placard",
+            "la quatrième dimension",
+            "le restaurant", 
+            "Pôle Emploi",  
+            "mon lit",
+            "le Stade de France", // NEW
+            "ma voiture", // NEW
+        ]
+
+        const quoiOne = [
+            "de l'existence d'une",
+            "de l'embûche causée par une",
+            "de la présence de cette",
+            "vous allez rire, d'une",
+            "c'est bien dommage, de la",
+            "de la position d'une",
+            "de son penchant pour une",
+            "d'une médiocre",
+            "d'une très belle",
+            "de cette satanée",
+            "de quoi ? Bah de cette", 
+            "d'une horrible", 
+            "de cette déplorable", 
+            "de cette splendide", 
+            "de cette magnifique", 
+            "d'une stupéfiante", 
+            "de la méchante",  
+            "je ne suis pas sûr, de cette",
+            "de quoi déjà ? Ah, de cette", // NEW
+        ]
+
+        const quoiTwo = [
+            "brouette rouillée",
+            "bassine oubliée",
+            "clé de douze",
+            "corbeille de linge",
+            "peau de banane",
+            "nounou d'enfer",
+            "boîte à meuh",
+            "Nintendo 64",
+            "bonne sœur",
+            "groupie du pianiste",
+            "cuvette WC", 
+            "pièce de deux euros", 
+            "flûte de champagne", 
+            "tasse ébréchée", 
+            "carte piège",
+            "collection d'œufs de Fabergé",  
+            "serviette humide",
+            "chaise à bascule", // NEW
+        ]
+
+        const quoiThree = [
+            "venait de ma grand-mère",
+            "est apparue comme par magie",
+            "avait été abandonnée",
+            "avait justement l'air fourbe",
+            "a été laissée par un voisin",
+            "était bel et bien dangereuse",
+            "avait une odeur inquiétante",
+            "avait changé de place",
+            "aurait dû être rangée",
+            "pose toujours des problèmes",
+            "parle allemand sans aucune raison",
+            "fait 100 millions de vues sur YouTube",
+            "préparait son sujet de veille",
+            "était corvée de vaisselle",
+            "revenait du SAV", 
+            "m'avait insulté", 
+            "était enterrée juste là", 
+            "avait visionné un film d'horreur", 
+            "était parti faire ses courses",  
+            "me racontait des salades",
+            "était encore en retard", // NEW
+        ]
+        const numberQui = qui.length
+        const numberVerbe = verbe.length
+        const numberOu = ou.length
+        const numberQuoiOne = quoiOne.length
+        const numberQuoiTwo = quoiTwo.length
+        const numberQuoiThree = quoiThree.length
+        const nombreElements = numberQui * numberVerbe * numberOu * numberQuoiOne * numberQuoiTwo * numberQuoiThree
+        document.getElementById("blocMessage").insertAdjacentHTML("afterend", `<p>${nombreElements.toLocaleString()} combinaisons actuellement !</p>`)
+        document.getElementById("blocMessage").insertAdjacentHTML("afterend", `<p>${numberQui} personnes, ${numberVerbe} verbes, ${numberOu} lieux, ${numberQuoiOne} adjectifs, ${numberQuoiTwo} objets et ${numberQuoiThree} raisons</p>`)
+        const phrase = () => {
+            // Choix d'élément dans chacun
+            const quiChoisi = Math.trunc(Math.random() * numberQui)
+            const verbeChoisi = Math.trunc(Math.random() * numberVerbe)
+            const ouChoisi = Math.trunc(Math.random() * numberOu)
+            const quoiOneChoisi = Math.trunc(Math.random() * numberQuoiOne)
+            const quoiTwoChoisi = Math.trunc(Math.random() * numberQuoiTwo)
+            const quoiThreeChoisi = Math.trunc(Math.random() * numberQuoiThree)
+            document.getElementById("blocMessage").insertAdjacentHTML("afterend", `<p>Je suis désolé sensei, c'est parce que ${qui[quiChoisi]} ${verbe[verbeChoisi]} dans ${ou[ouChoisi]} à cause ${quoiOne[quoiOneChoisi]} ${quoiTwo[quoiTwoChoisi]} qui ${quoiThree[quoiThreeChoisi]}...</p>`)
+        }        
+    </script>
+</body>
+</html>
