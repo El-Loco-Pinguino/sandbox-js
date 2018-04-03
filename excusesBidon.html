@@ -2,6 +2,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Excuses bidon !</title>
+    <style>
+        .evidence {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <button onclick="phrase()" type="button">Une phrase rigolote !</button>
@@ -51,7 +57,20 @@
             "Iggy l'iguane", 
             "la sorcière",  
             "un cosplayer",  
-            "mon avocat",  
+            "mon avocat",
+            "Cendrillon", // NEW
+            "Bowser", // NEW
+            "Tchoupi", // NEW
+            "Sonic le hérisson", // NEW
+            "la licorne", // NEW
+            "mon chat Malo", // NEW
+            "la blonde du coin", // NEW
+            "le clochard", // NEW
+            "un hurluberlu", // NEW
+            "un travesti", // NEW
+            "Oui-Oui", // NEW
+            "le kebab", // NEW
+            "Goku", // NEW
         ]
 
         const verbe = [
@@ -91,6 +110,13 @@
             "a fait un joli tour de magie", 
             "a tiré les cartes",
             "a réclamé à manger",
+            "est parti boire un verre", // NEW
+            "a fait une grève de la faim", // NEW
+            "m'a embrassé", // NEW
+            "n'a pas arrêté de ronfler", // NEW
+            "a mis des miettes partout", // NEW
+            "m'a demandé en mariage", // NEW
+            "m'a mis des bâtons dans les roues", // NEW
         ]
 
         const ou = [
@@ -131,6 +157,12 @@
             "mon lit",
             "le Stade de France", // NEW
             "ma voiture", // NEW
+            "Reims", // NEW
+            "le Château de Versailles", // NEW
+            "le pays des Bisounours", // NEW
+            "le désert", // NEW
+            "le pays des jouets", // NEW
+            "la chambre de ma mère", // NEW
         ]
 
         const quoiOne = [
@@ -170,6 +202,13 @@
             "sans aucun doute, de cette",  
             "je ne suis pas sûr, de cette",
             "de quoi déjà ? Ah, de cette", // NEW
+            "de la resplendissante", // NEW
+            "d'une dégueulasse", // NEW
+            "d'une terrifiante", // NEW
+            "de la pas possible", // NEW
+            "d'une génialissime", // NEW
+            "d'une reconnaissante", // NEW
+            "d'une perfide", // NEW
         ]
 
         const quoiTwo = [
@@ -209,6 +248,13 @@
             "collection d'œufs de Fabérgé",  
             "serviette humide",
             "chaise à bascule", // NEW
+            "plante carnivore", // NEW
+            "bouteille de Coca", // NEW
+            "crotte de nez", // NEW
+            "boucle d'oreille", // NEW
+            "assiette de crudités", // NEW
+            "huître pas fraîche", // NEW
+            "escalope milanaise", // NEW
         ]
 
         const quoiThree = [
@@ -245,9 +291,16 @@
             "était enterrée juste là", 
             "s'était avérée inutile", 
             "avait visionné un film d'horreur", 
-            "était parti faire ses courses",  
+            "était partie faire ses courses",  
             "me racontait des salades",
             "était encore en retard", // NEW
+            "était partie attraper des Pokémon", // NEW
+            "était franchement buguée", // NEW
+            "a fait vœu de chasteté", // NEW
+            "a gueulé contre l'arbitre", // NEW
+            "était frappée d'amnésie", // NEW
+            "m'avait mordu", // NEW
+            "volait dans le ciel", // NEW
         ]
         const numberQui = qui.length
         const numberVerbe = verbe.length
@@ -266,7 +319,7 @@
             const quoiOneChoisi = Math.trunc(Math.random() * numberQuoiOne)
             const quoiTwoChoisi = Math.trunc(Math.random() * numberQuoiTwo)
             const quoiThreeChoisi = Math.trunc(Math.random() * numberQuoiThree)
-            document.getElementById("blocMessage").insertAdjacentHTML("afterend", `<p>Je suis désolé sensei, c'est parce que ${qui[quiChoisi]} ${verbe[verbeChoisi]} dans ${ou[ouChoisi]} à cause ${quoiOne[quoiOneChoisi]} ${quoiTwo[quoiTwoChoisi]} qui ${quoiThree[quoiThreeChoisi]}...</p>`)
+            document.getElementById("blocMessage").insertAdjacentHTML("afterend", `<p>Je suis désolé sensei, c'est parce que <span class="evidence">${qui[quiChoisi]} ${verbe[verbeChoisi]}</span> dans <span class="evidence">${ou[ouChoisi]}</span> à cause <span class="evidence">${quoiOne[quoiOneChoisi]} ${quoiTwo[quoiTwoChoisi]}</span> qui <span class="evidence">${quoiThree[quoiThreeChoisi]}</span>...</p>`)
         }        
     </script>
 </body>
