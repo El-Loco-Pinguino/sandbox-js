@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>La secte des boutons !</title>
+    <style>
+        button {
+            width: 5%;
+            height: 30px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div id="principal">
+
+    </div>
+
+    <script type="text/javascript">
+        const startKaboomGame = (gridX, gridY) => {
+            let score = 0
+
+            for (let sizeX = 0; sizeX < gridX; sizeX++) {
+                document.getElementById("principal").innerHTML += "<span>"
+                for (let sizeY = 0; sizeY < gridY; sizeY++) {
+                    document.getElementById("principal").innerHTML += "<button class=\"press\" type=\"button\">Clic</button>"
+                }
+                document.getElementById("principal").innerHTML += "</span><br/>"
+            }
+    
+            const randomButton = Math.trunc(Math.random() * gridX * gridY)
+            //console.log(randomButton)
+    
+            const allButtons = document.getElementsByClassName("press")
+            for (let aloneButton of allButtons) {
+                aloneButton.addEventListener("click", () => {
+                    if (aloneButton.classList.contains("perdu")) {
+                        alert("Kaboom !")
+                        document.getElementById("principal").insertAdjacentHTML("beforebegin", `${score} points sur ${gridX * gridY - 1}`)
+                        if (score === 0) {
+                            document.getElementById("principal").insertAdjacentHTML("afterend", `Bien joué ! Du premier coup ! :P`)
+                        }
+                    } else {
+                        score++
+                        aloneButton.style.visibility = "hidden"
+                    }
+                })
+            }
+            
+            allButtons[randomButton].className = "perdu"
+        }
+
+        startKaboomGame(15,12)
+    </script>
+</body>
+</html>

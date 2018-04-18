@@ -1,0 +1,272 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake excuses !</title>
+</head>
+<body>
+    <button onclick="phrase()" type="button">A fake excuse, please !</button>
+    <div id="blocMessage">
+
+    </div>
+    <script>
+        const qui = [
+            "a zombie",
+            "the wizard troll",
+            "one of the guardians",
+            "a werewolf",
+            "the innkeeper",
+            "the drunk executioner",
+            "the ugly minstrel",
+            "the house-cleaning goblin",
+            "an elite orc",
+            "the trainee wizard",
+            "a weird guy",
+            "the bearded prisoner",
+            "the herborist",
+            "a neighbour's dog",
+            "a town guardian",
+            "a peddler",
+            "an adventurer",
+            "the plumber",
+            "the goblin inventor",
+            "an old fool",
+            "a certain Thomas C",
+            "the campus manager",
+            "the Snow Queen",
+            "my girlfriend",
+            "Nagui",
+            "my buddy Maxence",
+            "Donald Trump",
+            "the big bad wolf",
+            "Shrek",
+            "Cristina Cordula",
+            "Yusaku Fujiki",
+            "Florian",
+            "Princess Peach",
+            "my stepmother",
+            "the secretary",
+            "Sherlock Holmes",
+            "Pikachu",
+            "my English teacher", 
+            "Iggy the iguana", 
+            "a witch",  
+            "a cosplayer",  
+            "my lawyer",  
+        ]
+
+        const verbe = [
+            "has slipped",
+            "has skidded",
+            "has broken something",
+            "has wrecked something",
+            "vomited",
+            "lost its keys",
+            "relieved itself",
+            "was stuck",
+            "got lost",
+            "fell down",
+            "has fallen asleep",
+            "has spent the night",
+            "woke up",
+            "was killed",
+            "got hurt",
+            "has tripped",
+            "was wedged in",
+            "got a fight",
+            "did some trouble",
+            "has put on fire",
+            "has dansed the macarena",
+            "accused me",
+            "improvised a barbecue",
+            "contested in Miss France",
+            "has failed to commit suicide",
+            "has played Angry Birds",
+            "wanted a salary increase",
+            "couldn't stop spoiling Game of Thrones",
+            "ran away", 
+            "devoured its Big Mac", 
+            "has learnt something awful", 
+            "got a car accident", 
+            "proposed me something lewd", 
+            "did a nice magic trick", 
+            "has shown its fortune-telling skills",
+            "asked for some food",
+        ]
+
+        const ou = [
+            "the vault",
+            "the north underground path",
+            "the attic",
+            "my desk",
+            "the ingredient storage",
+            "the kitchens",
+            "the dogs' niche",
+            "the crow aviary",
+            "the scorpions' pit",
+            "your desk",
+            "the second level stairs",
+            "the glairy slime's bucket",
+            "the main corridor",
+            "the DIY shed",
+            "the smithy workshop",
+            "the whipping room",
+            "the orc's dormitory",
+            "Golbargh's lair",
+            "the shop",
+            "your library",
+            "the Wild Code School",
+            "my toilet",
+            "Fort Boyard",
+            "the Moulin Rouge",
+            "its yellow submarine",
+            "a movie theater", 
+            "the church", 
+            "the Eiffel Tower", 
+            "the locker", 
+            "a slum", 
+            "the fourth dimension", 
+            "a lost city", 
+            "the restaurant", 
+            "Pôle Emploi",  
+            "my bed",
+            "the Stade de France", // NEW
+            "my car", // NEW
+        ]
+
+        const quoiOne = [
+            "that foolish",
+            "that stupid",
+            "a fat",
+            "a nefarious",
+            "a weird",
+            "an amazing",
+            "an unlikely",
+            "a famous",
+            "a moron",
+            "the ridiculous",
+            "that's too bad of",
+            "the existence of",
+            "the trouble caused by",
+            "the predicament caused by",
+            "the presence of",
+            "you'll find this fun, of",
+            "that's a shame, of",
+            "the position of",
+            "his penchant of",
+            "a mediocre",
+            "well done for him, of",
+            "a pretty",
+            "that fucking",
+            "what ? Er, of that", 
+            "an awful", 
+            "that pitiful", 
+            "that gorgeous", 
+            "that magnific", 
+            "that smart", 
+            "the stupendous", 
+            "a phantasmagoric", 
+            "the meanie",  
+            "the harm caused by",  
+            "definitely by",  
+            "I dunno, of that",
+            "what huh ? Ah, of", // NEW
+        ]
+
+        const quoiTwo = [
+            "rusted wheelbarrow",
+            "twisted handle",
+            "damaged saw",
+            "forgotten basin",
+            "12 key",
+            "washing basket",
+            "twisted halberd",
+            "stuffed owl",
+            "trapped terrine",
+            "poisoned whistle",
+            "ghoul head",
+            "venomous scythe",
+            "dislocated guitar",
+            "rum connecting rod",
+            "broken salt shaker",
+            "banana peel",
+            "decrepit wig",
+            "red sock",
+            "green slipper",
+            "electronic cigarette",
+            "Nanny",
+            "moo box",
+            "Nintendo 64",
+            "nun",
+            "nail file",
+            "pianist's groupie",
+            "aoilet", 
+            "2 euros coin", 
+            "champagne glass", 
+            "broken cup", 
+            "trap card",  
+            "outdated crossbow",  
+            "Faberge egg collection",  
+            "wet towel",
+            "rocking chair", // NEW
+        ]
+
+        const quoiThree = [
+            "came from my grandma",
+            "was just right here",
+            "appeared as if by magic",
+            "came from your cousin",
+            "was abandoned",
+            "was suspect for me",
+            "shouldn't have been here",
+            "was looking cunning",
+            "was hidden in the darkness",
+            "looked like nothing",
+            "was left by a neighbour",
+            "was really dangerous",
+            "was expensive",
+            "smelt bad",
+            "has been moved",
+            "should have been put away",
+            "belonged to you",
+            "was slippy",
+            "might be mine",
+            "is always giving trouble",
+            "speaks German for no reason",
+            "has 100 million views on YouTube",
+            "was preparing its standby topic",
+            "was forced to wash the dishes",
+            "was faking faintness",
+            "got problems with a yakuza", 
+            "came back from after sales service", 
+            "insulted me", 
+            "was molding there", 
+            "started stuttering", 
+            "was buried just here", 
+            "was useless", 
+            "watched a horror movie", 
+            "went out for some shopping",  
+            "was gabbling to me",
+            "was late again", // NEW
+        ]
+        const numberQui = qui.length
+        const numberVerbe = verbe.length
+        const numberOu = ou.length
+        const numberQuoiOne = quoiOne.length
+        const numberQuoiTwo = quoiTwo.length
+        const numberQuoiThree = quoiThree.length
+        const nombreElements = numberQui * numberVerbe * numberOu * numberQuoiOne * numberQuoiTwo * numberQuoiThree
+        document.getElementById("blocMessage").insertAdjacentHTML("afterend", `<p>${nombreElements.toLocaleString()} different ways !</p>`)
+        document.getElementById("blocMessage").insertAdjacentHTML("afterend", `<p>${numberQui} people, ${numberVerbe} verbs, ${numberOu} places, ${numberQuoiOne} adjectives, ${numberQuoiTwo} items and ${numberQuoiThree} reasons</p>`)
+        const phrase = () => {
+            // Choix d'élément dans chacun
+            const quiChoisi = Math.trunc(Math.random() * numberQui)
+            const verbeChoisi = Math.trunc(Math.random() * numberVerbe)
+            const ouChoisi = Math.trunc(Math.random() * numberOu)
+            const quoiOneChoisi = Math.trunc(Math.random() * numberQuoiOne)
+            const quoiTwoChoisi = Math.trunc(Math.random() * numberQuoiTwo)
+            const quoiThreeChoisi = Math.trunc(Math.random() * numberQuoiThree)
+            document.getElementById("blocMessage").insertAdjacentHTML("afterend", `<p>Boss, I'm so sorry but ${qui[quiChoisi]} ${verbe[verbeChoisi]} in ${ou[ouChoisi]} because of ${quoiOne[quoiOneChoisi]} ${quoiTwo[quoiTwoChoisi]} who ${quoiThree[quoiThreeChoisi]}...</p>`)
+        }        
+    </script>
+</body>
+</html>
