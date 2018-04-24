@@ -4,41 +4,49 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>La secte des boutons !</title>
     <style>
-        button {
-            width: 5%;
-            height: 30px;
+        .press, .perdu {
+            width: 0;
+            height: 60px;
+            margin: 0.5em;
         }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-    <div id="principal">
+    <div class="container-fluid">
+        <div class="row">
+            <div id="score">
 
+            </div>
+            <div id="principal">
+        
+            </div>
+        </div>
     </div>
 
     <script type="text/javascript">
-        const startKaboomGame = (gridX, gridY) => {
+        const startKaboomGame = (gridSize) => {
             let score = 0
 
-            for (let sizeX = 0; sizeX < gridX; sizeX++) {
-                document.getElementById("principal").innerHTML += "<span>"
-                for (let sizeY = 0; sizeY < gridY; sizeY++) {
-                    document.getElementById("principal").innerHTML += "<button class=\"press\" type=\"button\">Clic</button>"
-                }
-                document.getElementById("principal").innerHTML += "</span><br/>"
+            for (let size = 0; size < gridSize; size++) {
+                document.getElementById("principal").innerHTML += "<button class=\"col-1 press btn btn-danger\" type=\"button\">Clic</button>"
             }
-    
-            const randomButton = Math.trunc(Math.random() * gridX * gridY)
+
+            const randomButton = Math.trunc(Math.random() * gridSize)
             //console.log(randomButton)
     
             const allButtons = document.getElementsByClassName("press")
+            //const newWidth = 100 / (gridX + 1)
             for (let aloneButton of allButtons) {
+                //aloneButton.style.width = newWidth + "%"
                 aloneButton.addEventListener("click", () => {
                     if (aloneButton.classList.contains("perdu")) {
+                        console.log(`Taille de allButtons: ${allButtons.length}`)
                         alert("Kaboom !")
-                        document.getElementById("principal").insertAdjacentHTML("beforebegin", `${score} points sur ${gridX * gridY - 1}`)
+                        document.getElementById("principal").innerHTML = ""
+                        document.getElementById("score").innerHTML = `<p>${score} points sur ${gridSize - 1}</p>`
                         if (score === 0) {
-                            document.getElementById("principal").insertAdjacentHTML("afterend", `Bien joué ! Du premier coup ! :P`)
+                            document.getElementById("score").innerHTML += `<p>Bien joué ! Du premier coup ! :P</p>`
                         }
                     } else {
                         score++
@@ -46,11 +54,10 @@
                     }
                 })
             }
-            
-            allButtons[randomButton].className = "perdu"
+            allButtons[randomButton].className = "col-1 btn btn-danger perdu"
         }
 
-        startKaboomGame(15,12)
+        startKaboomGame(70)
     </script>
 </body>
 </html>
